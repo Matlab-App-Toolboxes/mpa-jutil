@@ -5,5 +5,8 @@
 	<persistence-unit name="patch-rig">
 		<mapping-file>calibration-orm.xml</mapping-file>
 		<class></class>
+		<property name="localPath" value=""/>
+		<property name="remotePath" value=""/>
+		<property name="dataSource" value="io.mpa.H5DataSource"/>
 	</persistence-unit>
 </persistence>

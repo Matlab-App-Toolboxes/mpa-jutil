@@ -86,7 +86,7 @@ public class PersistenceFilter {
 	public static PersistenceUnit getPersistenceUnit(Persistence persistence,String name) {
 		Filter.CustomFilter<PersistenceUnit, String> filter = PersistenceFilter.createInstance().getPersistenceUnit();
 		filter.setCustomParam(name);
-		List<PersistenceUnit> matchedUnits = CommonUtil.filter(persistence.getPersistenceUnit(), filter);
+		List<PersistenceUnit> matchedUnits = PersistenceUtil.filter(persistence.getPersistenceUnit(), filter);
 		return matchedUnits.get(0);
 	}
 
@@ -95,14 +95,14 @@ public class PersistenceFilter {
 		String[] clazzes = persistenceUnit.getClazz().toArray(new String[persistenceUnit.getClazz().size()]);
 		Filter.CustomFilter<Entity, String> filter = PersistenceFilter.createInstance().getEntityMappings();
 		filter.setCustomParam(clazzes);
-		List<Entity> matchedEntities = CommonUtil.filter(entities, filter);
+		List<Entity> matchedEntities = PersistenceUtil.filter(entities, filter);
 		return matchedEntities;
 	}
 
 	public static Attributes getEntityAttributes(List<Entity> entities, String name) {
 		Filter.CustomFilter<Entity, String> filter = PersistenceFilter.createInstance().getEntityMappings();
 		filter.setCustomParam(name);
-		List<Entity> matchedEntities = CommonUtil.filter(entities, filter);
+		List<Entity> matchedEntities = PersistenceUtil.filter(entities, filter);
 		return matchedEntities.get(0).getAttributes();
 	}
 

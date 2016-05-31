@@ -2,10 +2,15 @@ package io.mpa.orm.util;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
-public class CommonUtil {
+import com.sun.java.xml.ns.persistence.Persistence.PersistenceUnit;
+import com.sun.java.xml.ns.persistence.Persistence.PersistenceUnit.Properties.Property;
+
+public class PersistenceUtil {
 
 	public static boolean isEmpty(String str) {
 		return (str == null || str.trim().length() == 0);
@@ -32,7 +37,15 @@ public class CommonUtil {
 	}
 
 	public static String normalize(String source) {
-		return CommonUtil.isEmpty(source) ? null : source.toLowerCase().replace(" ", "");
+		return PersistenceUtil.isEmpty(source) ? null : source.toLowerCase().replace(" ", "");
 
+	}
+	
+	public Map<String, String> getProperties(PersistenceUnit unit){
+		Map<String, String> map = new HashMap<>();
+		for(Property property : unit.getProperties().getProperty())
+			map.put(property.getName(), property.getValue());
+		
+		return map;
 	}
 }

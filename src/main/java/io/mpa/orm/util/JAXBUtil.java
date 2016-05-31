@@ -13,5 +13,4 @@ public class JAXBUtil {
 		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 		return jaxbUnmarshaller.unmarshal(new File(path));
 	}
-
 }

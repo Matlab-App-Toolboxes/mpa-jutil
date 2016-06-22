@@ -83,26 +83,29 @@ public class PersistenceFilter {
 		return entityFilter;
 	}
 
-	public static PersistenceUnit getPersistenceUnit(Persistence persistence,String name) {
+	@SuppressWarnings("unchecked")
+	public static PersistenceUnit getPersistenceUnit(Persistence persistence, String name) {
 		Filter.CustomFilter<PersistenceUnit, String> filter = PersistenceFilter.createInstance().getPersistenceUnit();
 		filter.setCustomParam(name);
-		List<PersistenceUnit> matchedUnits = PersistenceUtil.filter(persistence.getPersistenceUnit(), filter);
+		List<PersistenceUnit> matchedUnits = Common.filter(persistence.getPersistenceUnit(), filter);
 		return matchedUnits.get(0);
 	}
 
+	@SuppressWarnings("unchecked")
 	public static List<Entity> getEntityMappings(List<Entity> entities, PersistenceUnit persistenceUnit) {
 
 		String[] clazzes = persistenceUnit.getClazz().toArray(new String[persistenceUnit.getClazz().size()]);
 		Filter.CustomFilter<Entity, String> filter = PersistenceFilter.createInstance().getEntityMappings();
 		filter.setCustomParam(clazzes);
-		List<Entity> matchedEntities = PersistenceUtil.filter(entities, filter);
+		List<Entity> matchedEntities = Common.filter(entities, filter);
 		return matchedEntities;
 	}
 
+	@SuppressWarnings("unchecked")
 	public static Attributes getEntityAttributes(List<Entity> entities, String name) {
 		Filter.CustomFilter<Entity, String> filter = PersistenceFilter.createInstance().getEntityMappings();
 		filter.setCustomParam(name);
-		List<Entity> matchedEntities = PersistenceUtil.filter(entities, filter);
+		List<Entity> matchedEntities = Common.filter(entities, filter);
 		return matchedEntities.get(0).getAttributes();
 	}
 

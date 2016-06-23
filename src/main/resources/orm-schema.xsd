@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://mpa.io/orm/schema" xmlns:orm="http://mpa.io/orm/schema"
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.1">
-	
+<xsd:schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://mpa.io/orm/schema" xmlns:orm="http://mpa.io/orm/schema"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+	attributeFormDefault="unqualified" version="0.1">
+
 	<xsd:element name="entity-mappings">
 		<xsd:complexType>
 			<xsd:annotation>
@@ -11,8 +13,10 @@
 				</xsd:documentation>
 			</xsd:annotation>
 			<xsd:sequence>
-				<xsd:element name="description" type="xsd:string" minOccurs="0" />
-				<xsd:element name="entity" type="orm:entity" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element name="description" type="xsd:string"
+					minOccurs="0" />
+				<xsd:element name="entity" type="orm:entity" minOccurs="0"
+					maxOccurs="unbounded" />
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -23,16 +27,29 @@
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="description" type="xsd:string" minOccurs="0" />
-			<xsd:element name="struct-converter" type="orm:struct-converter" minOccurs="0" maxOccurs="unbounded" />
-			<xsd:element name="pre-persist" type="orm:pre-persist" minOccurs="0" />
-			<xsd:element name="post-persist" type="orm:post-persist" minOccurs="0" />
-			<xsd:element name="pre-remove" type="orm:pre-remove" minOccurs="0" />
-			<xsd:element name="post-remove" type="orm:post-remove" minOccurs="0" />
-			<xsd:element name="pre-update" type="orm:pre-update" minOccurs="0" />
-			<xsd:element name="post-update" type="orm:post-update" minOccurs="0" />
-			<xsd:element name="post-load" type="orm:post-load" minOccurs="0" />
-			<xsd:element name="attributes" type="orm:attributes" minOccurs="0" />
+			<xsd:element name="description" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="data-mapper" type="orm:data-mapper"
+				minOccurs="0" maxOccurs="unbounded" />
+
+			<xsd:element name="struct-converter" type="orm:struct-converter"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="pre-persist" type="orm:pre-persist"
+				minOccurs="0" />
+			<xsd:element name="post-persist" type="orm:post-persist"
+				minOccurs="0" />
+			<xsd:element name="pre-remove" type="orm:pre-remove"
+				minOccurs="0" />
+			<xsd:element name="post-remove" type="orm:post-remove"
+				minOccurs="0" />
+			<xsd:element name="pre-update" type="orm:pre-update"
+				minOccurs="0" />
+			<xsd:element name="post-update" type="orm:post-update"
+				minOccurs="0" />
+			<xsd:element name="post-load" type="orm:post-load"
+				minOccurs="0" />
+			<xsd:element name="attributes" type="orm:attributes"
+				minOccurs="0" />
 		</xsd:sequence>
 		<xsd:attribute name="name" type="xsd:string" />
 		<xsd:attribute name="class" type="xsd:string" use="required" />
@@ -46,15 +63,21 @@
 	<xsd:complexType name="attributes">
 		<xsd:annotation>
 			<xsd:documentation>
-				This element contains the entity field or property mappings.
+				This element contains the entity field or property
+				mappings.
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="description" type="xsd:string" minOccurs="0" />
-			<xsd:element name="id" type="orm:basic" minOccurs="0" maxOccurs="unbounded" />
-			<xsd:element name="basic" type="orm:basic" minOccurs="0" maxOccurs="unbounded" />
-			<xsd:element name="basic-collection" type="orm:basic-collection" minOccurs="0" maxOccurs="unbounded" />
-			<xsd:element name="element-collection" type="orm:element-collection" minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="description" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="id" type="orm:basic" minOccurs="0"
+				maxOccurs="unbounded" />
+			<xsd:element name="basic" type="orm:basic" minOccurs="0"
+				maxOccurs="unbounded" />
+			<xsd:element name="basic-collection" type="orm:basic-collection"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="element-collection" type="orm:element-collection"
+				minOccurs="0" maxOccurs="unbounded" />
 		</xsd:sequence>
 	</xsd:complexType>
 
@@ -112,6 +135,15 @@
 		<xsd:attribute name="attribute-type" type="xsd:string" />
 	</xsd:complexType>
 
+	<xsd:complexType name="data-mapper">
+		<xsd:annotation>
+			<xsd:documentation>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="name" type="xsd:string" use="required" />
+		<xsd:attribute name="class" type="xsd:string" use="required" />
+	</xsd:complexType>
+
 	<xsd:complexType name="converter">
 		<xsd:annotation>
 			<xsd:documentation>
@@ -136,7 +168,8 @@
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="description" type="xsd:string" minOccurs="0" />
+			<xsd:element name="description" type="xsd:string"
+				minOccurs="0" />
 		</xsd:sequence>
 		<xsd:attribute name="method-name" type="xsd:string" use="required" />
 	</xsd:complexType>
@@ -147,7 +180,8 @@
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="description" type="xsd:string" minOccurs="0" />
+			<xsd:element name="description" type="xsd:string"
+				minOccurs="0" />
 		</xsd:sequence>
 		<xsd:attribute name="method-name" type="xsd:string" use="required" />
 	</xsd:complexType>
@@ -158,7 +192,8 @@
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="description" type="xsd:string" minOccurs="0" />
+			<xsd:element name="description" type="xsd:string"
+				minOccurs="0" />
 		</xsd:sequence>
 		<xsd:attribute name="method-name" type="xsd:string" use="required" />
 	</xsd:complexType>
@@ -169,7 +204,8 @@
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="description" type="xsd:string" minOccurs="0" />
+			<xsd:element name="description" type="xsd:string"
+				minOccurs="0" />
 		</xsd:sequence>
 		<xsd:attribute name="method-name" type="xsd:string" use="required" />
 	</xsd:complexType>
@@ -179,7 +215,8 @@
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="description" type="xsd:string" minOccurs="0" />
+			<xsd:element name="description" type="xsd:string"
+				minOccurs="0" />
 		</xsd:sequence>
 		<xsd:attribute name="method-name" type="xsd:string" use="required" />
 	</xsd:complexType>
@@ -190,7 +227,8 @@
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="description" type="xsd:string" minOccurs="0" />
+			<xsd:element name="description" type="xsd:string"
+				minOccurs="0" />
 		</xsd:sequence>
 		<xsd:attribute name="method-name" type="xsd:string" use="required" />
 	</xsd:complexType>
@@ -201,7 +239,8 @@
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="description" type="xsd:string" minOccurs="0" />
+			<xsd:element name="description" type="xsd:string"
+				minOccurs="0" />
 		</xsd:sequence>
 		<xsd:attribute name="method-name" type="xsd:string" use="required" />
 	</xsd:complexType>

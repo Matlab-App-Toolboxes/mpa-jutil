@@ -1,7 +1,7 @@
 <entity-mappings xmlns="http://mpa.io/orm/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://mpa.io/orm/schema orm-schema.xsd ">
 	<description></description>
-	<entity class="entity.IntensityMeasurement">
+	<entity class="entity.IntensityMeasurement" name = "">
 		<attributes>
 			<id name="id" attribute-type="string" />
 			<basic name="calibrationDate" attribute-type="string" />

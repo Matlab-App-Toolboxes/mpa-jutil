@@ -41,6 +41,7 @@ public class Common {
 	}
 
 	public static Object unMarshal(String path, Class<?> className) throws JAXBException {
+		
 		JAXBContext jaxbContext = JAXBContext.newInstance(className);
 		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 		return jaxbUnmarshaller.unmarshal(new File(path));

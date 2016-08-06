@@ -18,18 +18,16 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 			
  * 
- * <p>Java class for post-persist complex type.
+ * <p>Java class for data-manager complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="post-persist">
+ * &lt;complexType name="data-manager">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="method-name" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *       &lt;attribute name="name" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *       &lt;attribute name="class" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -38,61 +36,60 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "post-persist", propOrder = {
-    "description"
-})
-public class PostPersist {
+@XmlType(name = "data-manager")
+public class DataManager {
 
-    protected String description;
-    @XmlAttribute(name = "method-name", required = true)
-    protected String methodName;
+    @XmlAttribute(name = "name", required = true)
+    protected String name;
+    @XmlAttribute(name = "class", required = true)
+    protected String clazz;
 
     /**
-     * Gets the value of the description property.
+     * Gets the value of the name property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getDescription() {
-        return description;
+    public String getName() {
+        return name;
     }
 
     /**
-     * Sets the value of the description property.
+     * Sets the value of the name property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setDescription(String value) {
-        this.description = value;
+    public void setName(String value) {
+        this.name = value;
     }
 
     /**
-     * Gets the value of the methodName property.
+     * Gets the value of the clazz property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getMethodName() {
-        return methodName;
+    public String getClazz() {
+        return clazz;
     }
 
     /**
-     * Sets the value of the methodName property.
+     * Sets the value of the clazz property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setMethodName(String value) {
-        this.methodName = value;
+    public void setClazz(String value) {
+        this.clazz = value;
     }
 
 }

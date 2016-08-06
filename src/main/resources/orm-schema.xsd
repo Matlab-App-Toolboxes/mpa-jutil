@@ -29,7 +29,7 @@
 		<xsd:sequence>
 			<xsd:element name="description" type="xsd:string"
 				minOccurs="0" />
-			<xsd:element name="data-mapper" type="orm:data-mapper"
+			<xsd:element name="data-manager" type="orm:data-manager"
 				minOccurs="0" maxOccurs="unbounded" />
 
 			<xsd:element name="struct-converter" type="orm:struct-converter"
@@ -135,7 +135,7 @@
 		<xsd:attribute name="attribute-type" type="xsd:string" />
 	</xsd:complexType>
 
-	<xsd:complexType name="data-mapper">
+	<xsd:complexType name="data-manager">
 		<xsd:annotation>
 			<xsd:documentation>
 			</xsd:documentation>

@@ -70,7 +70,7 @@ public class PersistenceFilter {
 
 				@Override
 				public boolean include(Entity obj) {
-					return mappings.contains(obj.getName());
+					return mappings.contains(obj.getClazz());
 				}
 
 				@Override

@@ -87,7 +87,7 @@ public class PersistenceFilter {
 	public static PersistenceUnit getPersistenceUnit(Persistence persistence, String name) {
 		Filter.CustomFilter<PersistenceUnit, String> filter = PersistenceFilter.createInstance().getPersistenceUnit();
 		filter.setCustomParam(name);
-		List<PersistenceUnit> matchedUnits = Common.filter(persistence.getPersistenceUnit(), filter);
+		List<PersistenceUnit> matchedUnits = ComUtil.filter(persistence.getPersistenceUnit(), filter);
 		return matchedUnits.get(0);
 	}
 
@@ -97,7 +97,7 @@ public class PersistenceFilter {
 		String[] clazzes = persistenceUnit.getClazz().toArray(new String[persistenceUnit.getClazz().size()]);
 		Filter.CustomFilter<Entity, String> filter = PersistenceFilter.createInstance().getEntityMappings();
 		filter.setCustomParam(clazzes);
-		List<Entity> matchedEntities = Common.filter(entities, filter);
+		List<Entity> matchedEntities = ComUtil.filter(entities, filter);
 		return matchedEntities;
 	}
 
@@ -105,7 +105,7 @@ public class PersistenceFilter {
 	public static Attributes getEntityAttributes(List<Entity> entities, String name) {
 		Filter.CustomFilter<Entity, String> filter = PersistenceFilter.createInstance().getEntityMappings();
 		filter.setCustomParam(name);
-		List<Entity> matchedEntities = Common.filter(entities, filter);
+		List<Entity> matchedEntities = ComUtil.filter(entities, filter);
 		return matchedEntities.get(0).getAttributes();
 	}
 

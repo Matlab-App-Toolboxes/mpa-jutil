@@ -51,6 +51,12 @@ public class ComUtil {
 		return jaxbUnmarshaller.unmarshal(new File(path));
 	}
 
+	public static Date getDateFromUUID(String uuid) {
+		UUID id = UUID.fromString(uuid);
+		long time = (id.timestamp() - NUM_100NS_INTERVALS_SINCE_UUID_EPOCH) / 10000;
+		return new Date(time);
+	}
+
 	public static Date getDateFromUUID(UUID uuid) {
 		long time = (uuid.timestamp() - NUM_100NS_INTERVALS_SINCE_UUID_EPOCH) / 10000;
 		return new Date(time);
